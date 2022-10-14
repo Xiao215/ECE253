@@ -1,8 +1,8 @@
 module part2(A, B, Function, ALUOut);
-    input [3:0] A, B;
-    input [1:0] Function;
-    output [7:0] ALUOut;
-    wire [7:0] w1, w2. w3. w4;
+    input logic [3:0] A, B;
+    input logic [1:0] Function;
+    output logic [7:0] ALUOut;
+    wire logic [7:0] w1, w2, w3, w4;
     concate c1(A, B, w4);
     adder a1(A, B, w1);
     bigOr(w1, w2);
@@ -27,13 +27,13 @@ module adder(a, b, c);
     assign c = w;
 endmodule
 module bigOr(a, c);
-    input [7:0] a;
-    output [7:0] c;
+    input logic [7:0] a;
+    output logic [7:0] c;
     assign c = |a;
 endmodule
 module bigAnd(a, c);
-    input [7:0] a;
-    output [7:0] c;
+    input logic [7:0] a;
+    output logic [7:0] c;
     assign c = &a;
 endmodule
 module concate(a, b, c);
