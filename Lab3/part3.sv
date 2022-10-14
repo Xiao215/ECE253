@@ -20,16 +20,19 @@ module part2(A, B, Function, ALUOut);
 endmodule
 
 module bigOr(a, c);
+    parameter N = 4;
     input logic [2*N-1:0] a;
     output logic [2*N-1:0] c;
     assign c = |a;
 endmodule
 module bigAnd(a, c);
+    parameter N = 4;
     input logic [2*N-1:0] a;
     output logic [2*N-1:0] c;
     assign c = &a;
 endmodule
 module concate(a, b, c);
+    parameter N = 4;
     input logic [N-1:0] a, b;
     output logic [2*N-1:0] c;
     assign c = {a, b};
