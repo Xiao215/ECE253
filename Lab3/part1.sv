@@ -1,4 +1,4 @@
-module part1(a, b, c in, s, c_out);
+module part1(a, b, c_in, s, c_out);
     input logic [3:0] a, b;
     input logic c_in;
     output logic [3:0] s, c_out;

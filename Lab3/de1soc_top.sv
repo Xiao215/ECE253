@@ -12,10 +12,14 @@ module de1soc_top
     output logic [9:0] LEDR,
     input logic [9:0] SW
 );
-    part1(.a(SW[3:0]), .b(SW[7:4]), .c_in(SW[8]), .s(LEDR[3:0]), .c_out(LEDR[7:4]))
-    // hex_decoder(c.(SW[7:4]), display.(HEX2));
-    // hex_decoder(c.(SW[3:0]), display.(HEX0));
-    // hex_decoder(c.(LEDR[7:4]), display.(HEX4));
-    // hex_decoder(c.(LEDR[3:0]), display.(HEX3));
-    // part2(.A(SW[7:4]), .B(SW[3:0]), .Function(KEY[1:0]), .ALUOut(LEDR[7:0]));
+
+
+
+
+    hex_decoder(.c(SW[7:4]), .display(HEX2));
+    hex_decoder(.c(SW[3:0]), .display(HEX0));
+    hex_decoder(.c(LEDR[7:4]), .display(HEX4));
+    hex_decoder(.c(LEDR[3:0]), .display(HEX3));
+    part2(.A(SW[7:4]), .B(SW[3:0]), .Function(KEY[1:0]), .ALUOut(LEDR[7:0]));
+
 endmodule
