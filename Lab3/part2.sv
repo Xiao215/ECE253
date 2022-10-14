@@ -5,8 +5,8 @@ module part2(A, B, Function, ALUOut);
     wire logic [7:0] w1, w2, w3, w4;
     concate c1(A, B, w4);
     adder a1(A, B, w1);
-    bigOr(w1, w2);
-    bigAnd(w1, w3);
+    bigOr(w4, w2);
+    bigAnd(w4, w3);
     always_comb // declare always_comb block
         begin
             case (Function) // start case statement
