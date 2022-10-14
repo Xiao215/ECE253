@@ -16,10 +16,10 @@ module de1soc_top
 
 
 
-    hex_decoder(.c(SW[7:4]), .display(HEX2));
-    hex_decoder(.c(SW[3:0]), .display(HEX0));
-    hex_decoder(.c(LEDR[7:4]), .display(HEX4));
-    hex_decoder(.c(LEDR[3:0]), .display(HEX3));
+    hex_decoder h1(.c(SW[7:4]), .display(HEX2));//value of A
+    hex_decoder h2(.c(SW[3:0]), .display(HEX0));//value of B
+    hex_decoder h3(.c(LEDR[7:4]), .display(HEX4));//first 4 bits of LEDR
+    hex_decoder h4(.c(LEDR[3:0]), .display(HEX3));//last 4 bit of LEDR
     part2(.A(SW[7:4]), .B(SW[3:0]), .Function(KEY[1:0]), .ALUOut(LEDR[7:0]));
 
 endmodule

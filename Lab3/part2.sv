@@ -10,11 +10,11 @@ module part2(A, B, Function, ALUOut);
     always_comb // declare always_comb block
         begin
             case (Function) // start case statement
-            2'b00: ALUOut = w1 // Case 0
-            2'b01: ALUOut = w2 // Case 1
-            2'b10: ALUOut = w3 // Case 2
-            2'b11: ALUOut = w4 // Case 3
-            default:  ALUOut = 0 // Case 7
+            2'b00: ALUOut = w1; // Case 0
+            2'b01: ALUOut = w2; // Case 1
+            2'b10: ALUOut = w3; // Case 2
+            2'b11: ALUOut = w4; // Case 3
+            default:  ALUOut = 0; // Case 7
             endcase
         end
 endmodule
