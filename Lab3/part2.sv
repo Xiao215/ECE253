@@ -22,9 +22,9 @@ endmodule
 module adder(a, b, c);
     input logic [3:0] a, b;
     output logic [7:0] c;
-    wire [4:0] w;
-    part1 add(a, b, 0, w[3:0], w[4]);
-    assign c = w;
+    wire [3:0] w1, w2;
+    part1 add(a, b, 0, w1, w2);
+    assign c = {w2[3], w1};
 endmodule
 module bigOr(a, c);
     input logic [7:0] a;
