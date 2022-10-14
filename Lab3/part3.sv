@@ -1,4 +1,4 @@
-module part2(A, B, Function, ALUOut);
+module part3(A, B, Function, ALUOut);
     parameter N = 4;
     input logic [N-1:0] A, B;
     input logic [1:0] Function;
