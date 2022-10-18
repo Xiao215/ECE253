@@ -1,39 +1,18 @@
-module part3(A, B, Function, ALUOut);
+`include "part1.sv"
+
+module part3(A, B, Function, ALUout);
     parameter N = 4;
     input logic [N-1:0] A, B;
     input logic [1:0] Function;
-    output logic [2*N-1:0] ALUOut;
-    wire logic [2*N-1:0] w2, w3, w4;
-    concate c1(A, B, w4);
-    bigOr(w4, w2);
-    bigAnd(w4, w3);
+    output logic [2*N-1:0] ALUout;
     always_comb // declare always_comb block
-        begin
-            case (Function) // start case statement
-            2'b00: ALUOut = A+B; // Case 0
-            2'b01: ALUOut = w2; // Case 1
-            2'b10: ALUOut = w3; // Case 2
-            2'b11: ALUOut = w4; // Case N-1
-            default:  ALUOut = 0; // Case 2*N-1
-            endcase
-        end
-endmodule
-
-module bigOr(a, c);
-    parameter N = 4;
-    input logic [2*N-1:0] a;
-    output logic [2*N-1:0] c;
-    assign c = |a;
-endmodule
-module bigAnd(a, c);
-    parameter N = 4;
-    input logic [2*N-1:0] a;
-    output logic [2*N-1:0] c;
-    assign c = &a;
-endmodule
-module concate(a, b, c);
-    parameter N = 4;
-    input logic [N-1:0] a, b;
-    output logic [2*N-1:0] c;
-    assign c = {a, b};
+    begin
+        case (Function) // start case statement
+        2'b00: ALUout = A+B; // Case 0
+        2'b01: ALUout = |A; // Case 1
+        2'b10: ALUout = &A; // Case 2
+        2'b11: ALUout = {A, B}; // Case 3
+        default:  ALUout = 8'b00000000; // Case 7
+        endcase
+    end
 endmodule
