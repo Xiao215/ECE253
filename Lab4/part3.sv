@@ -8,7 +8,6 @@ module part3(clock, reset, ParallelLoadn, RotateRight, ASRight, Data_IN, Q);
     part3a p2(.left(Data_IN[3]), .right(Data_IN[1]), .clock(clock), .reset(reset), .loadn(ParallelLoadn), .LoadLeft(RotateRight), .D(Data_IN[2]),  .Q(Q[2]));
     part3a p3(.left(Data_IN[2]), .right(Data_IN[0]), .clock(clock), .reset(reset), .loadn(ParallelLoadn), .LoadLeft(RotateRight), .D(Data_IN[1]), .Q(Q[1]));
     part3a p4(.left(Data_IN[1]), .right(Data_IN[3]), .clock(clock), .reset(reset), .loadn(ParallelLoadn), .LoadLeft(RotateRight), .D(Data_IN[0]), .Q(Q[0]));
-   
 endmodule
 
 
@@ -22,8 +21,12 @@ module part3a(left, right, LoadLeft,D, loadn, clock, reset, Q);
     begin
         if(reset)
             Q <= 0;
+            D <= 0;
         else
+        begin
             Q <= w2;
+            D <= w2;
+        end
     end
 endmodule
 module part3b(left, right, LoadLeft,D, loadn, clock, reset, Q, ASRight);
