@@ -19,13 +19,14 @@ module part3a(left, right, LoadLeft,D, loadn, clock, reset, Q);
     mux2to1 m2(.x(D), .y(w1), .s(loadn), .out(w2));
     always_ff @(posedge clock)
     begin
-        if(reset)
+        if(reset) begin
             Q <= 0;
-            D <= 0;
+            D<=0;
+        end
         else
         begin
             Q <= w2;
-            D <= w2;
+            D<=w2;
         end
     end
 endmodule
@@ -39,9 +40,15 @@ module part3b(left, right, LoadLeft,D, loadn, clock, reset, Q, ASRight);
     always_ff @(posedge clock)
     begin
         if(reset)
+        begin
             Q <= 0;
+            D<=0;
+        end
         else
+        begin
             Q <= w3;
+            D<=w3;
+        end
     end
 endmodule
 module mux2to1(x, y, s, out);
